@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/formulario.css">
+    <!-- Tailwind CDN para aproximar estilos del componente React -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Arquidiocesis | Documento</title>
+</head>
+<body>
+    <header>
+        <h1>Documento: 
+            <span id="documento-titulo">Título del Documento</span>
+        </h1>
+        <nav>
+            <a href="./tablaDocumentos.html">Ver documentos</a>
+            <a href="./paginaPrincipal.html">Página Principal</a>
+        </nav>
+    </header>
+        <div class="max-w-6xl mx-auto px-4 py-6">
+            <form id="form-documento" class="space-y-6" onsubmit="return false;">
+                <!-- Sección 1 -->
+                <div class="border rounded-lg bg-white shadow-sm">
+                    <button type="button" class="w-full text-left px-4 py-3 font-semibold bg-gray-100 hover:bg-gray-200 accordion-btn" data-target="#sec1">1. Revisión del documento</button>
+                    <div id="sec1" class="p-4 space-y-4 accordion-panel">
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Tipo Documento ID</label>
+                                <input readonly name="tipoDocumentoID" class="w-full border rounded px-2 py-1 bg-gray-50" placeholder=""/>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Tipo Documento (Nombre)</label>
+                                <input readonly name="tipoDocumento" class="w-full border rounded px-2 py-1 bg-gray-50"/>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Otro (si aplica)</label>
+                                <input readonly name="tipoDocumentoOtro" class="w-full border rounded px-2 py-1 bg-gray-50"/>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Código</label>
+                                <input readonly name="codigo" class="w-full border rounded px-2 py-1 bg-gray-50"/>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-4 gap-4">
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Fecha Emisión</label><input readonly name="fechaEmision" type="date" class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Plazo Vigencia</label><input readonly name="plazoVigencia" class="w-full border rounded px-2 py-1 bg-gray-50" placeholder="Texto / periodo"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Estado</label><input readonly name="nombreEstado" class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Municipio</label><input readonly name="nombreMunicipio" class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Parroquia</label><input readonly name="nombreParroquia" class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                                                        <div><label class="block text-xs font-medium text-gray-600 mb-1">Monto</label>
+                                                            <div class="flex gap-2">
+                                                                <input readonly name="monto" class="w-full border rounded px-2 py-1 bg-gray-50"/>
+                                                                <input readonly name="monedaContrato" class="w-24 border rounded px-2 py-1 bg-gray-50" placeholder="Moneda"/>
+                                                            </div>
+                                                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sección 2 -->
+                <div class="border rounded-lg bg-white shadow-sm">
+                    <button type="button" class="w-full text-left px-4 py-3 font-semibold bg-gray-100 hover:bg-gray-200 accordion-btn" data-target="#sec2">2. Partes involucradas</button>
+                    <div id="sec2" class="p-4 space-y-4 accordion-panel">
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Otorgante Nombre</label><input name="otorganteNombre" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Otorgante Cédula</label><input name="otorganteId" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Otorgante Prefijo</label>
+                                <select name="otorgantePrefijo" disabled class="w-full border rounded px-2 py-1 bg-gray-50">
+                                    <option value=""></option>
+                                    <option value="V">V</option>
+                                    <option value="J">J</option>
+                                    <option value="G">G</option>
+                                    <option value="E">E</option>
+                                </select>
+                            </div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Receptor Nombre</label><input name="receptorNombre" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Receptor Cédula</label><input name="receptorId" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Receptor Prefijo</label>
+                                <select name="receptorPrefijo" disabled class="w-full border rounded px-2 py-1 bg-gray-50">
+                                    <option value=""></option>
+                                    <option value="V">V</option>
+                                    <option value="J">J</option>
+                                    <option value="G">G</option>
+                                    <option value="E">E</option>
+                                </select>
+                            </div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Abogado Otorgante</label><input name="abogadoOtorganteNombre" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Abogado Otorgante ID</label><input name="abogadoOtorganteId" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Abogado Receptor</label><input name="abogadoReceptorNombre" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Abogado Receptor ID</label><input name="abogadoReceptorId" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sección 3 -->
+                <div class="border rounded-lg bg-white shadow-sm">
+                    <button type="button" class="w-full text-left px-4 py-3 font-semibold bg-gray-100 hover:bg-gray-200 accordion-btn" data-target="#sec3">3. Detalles del bien / inmueble</button>
+                    <div id="sec3" class="p-4 space-y-4 accordion-panel">
+                                                <div class="space-y-4">
+                                                    <div class="flex items-center justify-between">
+                                                        <h3 class="text-sm font-medium text-gray-700">Bienes (propiedades)</h3>
+                                                        <div>
+                                                            <button id="agregar-bien" type="button" class="bg-blue-500 text-white px-3 py-1 rounded">Agregar Propiedad</button>
+                                                            <button id="guardar-bienes" type="button" class="bg-green-600 text-white px-3 py-1 rounded" style="margin-left:8px;">Guardar Propiedades</button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Metros por propiedad ahora se muestran dentro de cada 'Propiedad' individual. -->
+                                                    <div id="bienes-container" class="space-y-4"></div>
+                                                    <div class="text-sm text-gray-500">Puedes agregar varias propiedades asociadas al mismo título; controla cada una individualmente.</div>
+                                                </div>
+                    </div>
+                </div>
+                <!-- Sección 4 -->
+                <div class="border rounded-lg bg-white shadow-sm">
+                    <button type="button" class="w-full text-left px-4 py-3 font-semibold bg-gray-100 hover:bg-gray-200 accordion-btn" data-target="#sec4">4. Protocolo</button>
+                    <div id="sec4" class="p-4 space-y-4 accordion-panel">
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Oficina Registro</label><input name="oficinaRegistroNombre" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Fecha Otorgamiento</label><input name="fechaOtorgamiento" type="date" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Datos Asiento</label><input name="datosAsiento" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div class="md:col-span-3"><label class="block text-xs font-medium text-gray-600 mb-1">Condiciones</label><textarea name="condiciones" readonly class="w-full border rounded px-2 py-1 bg-gray-50 h-16"></textarea></div>
+                            <div class="md:col-span-3"><label class="block text-xs font-medium text-gray-600 mb-1">Observaciones</label><textarea name="observaciones" readonly class="w-full border rounded px-2 py-1 bg-gray-50 h-16"></textarea></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sección 5 -->
+                <div class="border rounded-lg bg-white shadow-sm">
+                    <button type="button" class="w-full text-left px-4 py-3 font-semibold bg-gray-100 hover:bg-gray-200 accordion-btn" data-target="#sec5">5. Revisión</button>
+                    <div id="sec5" class="p-4 space-y-4 accordion-panel">
+                        <div class="grid md:grid-cols-4 gap-4">
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Nombre</label><input name="revisionNombre" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Fecha</label><input name="revisionFecha" type="date" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Cédula</label><input name="revisionCedula" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Prefijo</label>
+                                <select name="revisionPrefijo" disabled class="w-full border rounded px-2 py-1 bg-gray-50">
+                                    <option value=""></option>
+                                    <option value="V">V</option>
+                                    <option value="J">J</option>
+                                    <option value="G">G</option>
+                                    <option value="E">E</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sección 6 -->
+                <div class="border rounded-lg bg-white shadow-sm">
+                    <button type="button" class="w-full text-left px-4 py-3 font-semibold bg-gray-100 hover:bg-gray-200 accordion-btn" data-target="#sec6">6. Digitalización</button>
+                    <div id="sec6" class="p-4 space-y-4 accordion-panel">
+                        <div class="grid md:grid-cols-4 gap-4">
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Código</label><input name="digitalCodigo" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Ubicación Física</label><input name="digitalUbicacion" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Responsable</label><input name="digitalNombre" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Fecha</label><input name="digitalFecha" type="date" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Identificación</label><input name="digitalIdentificacion" readonly class="w-full border rounded px-2 py-1 bg-gray-50"/></div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Prefijo</label>
+                                <select name="digitalPrefijo" disabled class="w-full border rounded px-2 py-1 bg-gray-50">
+                                    <option value=""></option>
+                                    <option value="V">V</option>
+                                    <option value="J">J</option>
+                                    <option value="G">G</option>
+                                    <option value="E">E</option>
+                                </select>
+                            </div>
+                            <div><label class="block text-xs font-medium text-gray-600 mb-1">Palabra Clave</label><input name="digitalPalabraClave" readonly class="w-full border rounded px-2 py-1 bg-gray-50" placeholder="Palabras para búsqueda"/></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sección 7 -->
+                <div class="border rounded-lg bg-white shadow-sm">
+                    <button type="button" class="w-full text-left px-4 py-3 font-semibold bg-gray-100 hover:bg-gray-200 accordion-btn" data-target="#sec7">7. Archivo PDF</button>
+                    <div id="sec7" class="p-4 space-y-4 accordion-panel">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-600 mb-1">Archivo PDF (referencia)</label>
+                            <div class="flex items-center gap-2">
+                                <input readonly name="ruta_pdf" class="w-full border rounded px-2 py-1 bg-gray-50" placeholder="/uploads/doc.pdf"/>
+                                <div id="pdf-controls" class="ml-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <a href="#" id="editar-documento" class="block bg-blue-200 text-center text-blue-600 hover:bg-blue-400 hover:text-black hover:underline px-4 py-2 rounded">Editar Documento</a>
+                    <button type="button" id="eliminar-documento" class="bg-red-500 text-white px-4 py-2 rounded">Eliminar Documento</button>
+                </div>
+            </form>
+        </div>
+
+    <footer>
+        <p>&copy; 2025 Arquidiocesis. Todos los derechos reservados.</p>
+    </footer>
+
+        <script type="module">
+            import { obtenerIdDeQuery, cargarDocumento } from '/scripts/documentos/cargarDocumento.js';
+            import { editar } from '/scripts/documentos/habilitarEdicion.js';
+            import { initPdfControls } from '/scripts/documentos/subirArchivo.js';
+            document.addEventListener('DOMContentLoaded', () => {
+                const id = obtenerIdDeQuery();
+                if(id) {
+                    cargarDocumento(id).then(()=>{
+                        // inicializar controles PDF con los datos cargados (window.__documentoFull)
+                        try{ initPdfControls(window.__documentoFull); }catch(e){}
+                    });
+                }
+                const editLink = document.getElementById('editar-documento');
+                editLink?.addEventListener('click', e=>{ e.preventDefault(); editar(); editLink.classList.add('hidden'); });
+            });
+        </script>
+        <script>
+            // Wire the 'Guardar Propiedades' button to the guardarCambios function exposed by habilitarEdicion
+            document.addEventListener('click', (e) => {
+                const target = e.target;
+                if (target && target.id === 'guardar-bienes') {
+                    if (typeof window !== 'undefined' && typeof window.guardarCambios === 'function') {
+                        window.guardarCambios();
+                    } else if (typeof window !== 'undefined' && typeof window.guardarBienes === 'function') {
+                        window.guardarBienes();
+                    } else {
+                        // fallback: try to call editar's guardar if exported differently
+                        console.warn('Guardar Propiedades: no se encontró la función guardarCambios en window.');
+                    }
+                }
+                if (target && target.id === 'eliminar-documento') {
+                    if (typeof window !== 'undefined' && typeof window.deleteDocumento === 'function') {
+                        window.deleteDocumento();
+                    } else {
+                        alert('Función de eliminación no disponible.');
+                    }
+                }
+            });
+        </script>
+</body>
+</html>

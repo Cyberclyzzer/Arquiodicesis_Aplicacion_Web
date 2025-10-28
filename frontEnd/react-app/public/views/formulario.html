@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/frontEnd/styles/formulario.css">
+    <title>Arquidiocesis | Agregar documento</title>
+</head>
+<body>
+    <header>
+        <h1>Formulario de documentos</h1>
+        <nav>
+            <a href="/frontEnd/views/tablaDocumentos.html">Ver documentos</a>
+            <a href="/frontEnd/views/paginaPrincipal.html">Agregar documento</a>
+        </nav>
+    </header>
+    <div class="form-container">
+        <form id="form-documento" action="#">
+            <h4>Documentos/contratos</h4>
+            <div class="tipo-contrato dropdown">
+                <p class="dropdown-button">Tipo de contrato</p>
+                <div class="contenido-dropdown">
+                    <a href="#">Compra</a>
+                    <a href="#">Venta</a>
+                    <a href="#">Comodato</a>
+                    <a href="#">Contrato de alquiler</a>
+                    <a href="#">Titulo supletorio</a>
+                    <a href="#">Donacion</a>
+                    <a href="#">Permuta</a>
+                </div>
+                <input type="hidden" name="tipo-contrato" id="tipo-contrato" />
+            </div>
+
+            <div class="tipo-documento dropdown">
+                <p class="dropdown-button">Tipo de documento</p>
+                <div class="contenido-dropdown">
+                    <!-- Se poblará desde la API /tipos-documento -->
+                </div>
+                <input type="hidden" name="tipo-de-documento" id="tipo-de-documento" />
+            </div>
+
+            <div class="partes-involucradas">
+                <h4>Partes involucradas</h4>
+                <div class="columna-solicitud">
+                    <input type="text" name="nombre-del-otorgante" placeholder="Nombre del otorgante" required>
+                    <input type="text" name="id-del-otorgante" placeholder="ID del otorgante" required>
+                </div>
+                <div class="columna-solicitud">
+                    <input type="text" name="nombre-del-receptor" placeholder="Nombre del receptor" required>
+                    <input type="text" name="id-del-receptor" placeholder="ID del receptor" required>
+                </div>
+                <div class="columna-solicitud">
+                    <input type="text" name="nombre-del-abogado" placeholder="Nombre del abogado">
+                    <input type="text" name="id-del-abogado" placeholder="ID del abogado">
+                </div>
+            </div>
+
+            <div class="detalles-inmueble">
+                <h4>Detalles del inmueble</h4>
+                <div class="columna-solicitud">
+                    <div class="tipo-bien dropdown">
+                        <p class="dropdown-button">Tipo de bien</p>
+                        <div class="contenido-dropdown">
+                            <!-- Se poblará desde la API /tipos-bien -->
+                        </div>
+                        <select name="tipoBienID" id="tipoBienID" class="dropdown-button"></select>
+                    </div>
+                    <input type="text" name="caracteristicas-del-inmueble" placeholder="Caracteristicas del inmueble" required>
+                </div>
+                <div class="columna-solicitud">
+                    <input type="text" name="ubicacion-o-direccion" placeholder="Ubicacion o direccion" required>
+                    <input type="text" name="metros-terreno" placeholder="Metros de terreno">
+                </div>
+                <div class="columna-solicitud">
+                    <input type="text" name="metros-construccion" placeholder="Metros de construccion">
+                </div>
+                <div class="columna-solicitud">
+                    <input type="text" name="municipio" placeholder="Municipio" required>
+                    <input type="text" name="parroquia" placeholder="Parroquia" required>
+                </div>
+                <div class="columna-solicitud">
+                    <input type="text" name="estado" placeholder="Estado" required>
+                </div>
+                <div class="dropdown">
+                    <p class="dropdown-button">Lindero:</p>
+                    <div class="contenido-dropdown">
+                        <a href="#">Norte</a>
+                        <a href="#">Sur</a>
+                        <a href="#">Este</a>
+                        <a href="#">Oeste</a>
+                    </div>
+                    <input type="hidden" name="lindero" id="lindero" />
+                </div>
+                <div class="columna-solicitud">
+                    <input type="text" name="monto" placeholder="Monto o valor del contrato (si aplica)">
+                </div>
+                <label for="fecha-emision">
+                    Fecha de emision
+                </label>
+                <input id="fecha-emision" type="date" name="fecha-emision" required>
+                <label for="vigencia">
+                    Plazo de vigencia del documento
+                </label>
+                <container id="vigencia">
+                    <input class="fecha-vigencia" type="date" name="vigencia-inicio" aria-label="Fecha inicio de vigencia">
+                    <span> - </span>
+                    <input class="fecha-vigencia" type="date" name="vencimiento" aria-label="Fecha fin de vigencia">
+                </container>
+            </div>
+
+            <div class="protocolo">
+                <h4>Datos de protocolizacion/autenticacion</h4>
+                <div class="columna-solicitud">
+                    <div class="oficina-registro dropdown">
+                        <p class="dropdown-button">Oficina de registro/notaría</p>
+                        <div class="contenido-dropdown">
+                            <!-- Se poblará desde la API /oficinas-registro -->
+                        </div>
+                        <input type="hidden" name="oficina-de-registro" id="oficina-de-registro" />
+                    </div>
+                </div>
+                <label for="fecha-otorgamiento">
+                    Fecha del otorgamiento
+                </label>
+                <div class="columna-solicitud">
+                    <input id="fecha-otorgamiento" type="date" name="fecha-otorgamiento" required>
+                    <input type="text" name="datos-asiento" placeholder="Datos del asiento del documento" required>
+                </div>
+                <div class="columna-solicitud">
+                    <input type="text" name="condiciones-especiales" placeholder="Condiciones especiales contempladas en el documento (si aplica)">
+                    <input type="text" name="observaciones" placeholder="Observaciones">
+                </div>
+
+
+            <div class="responsable-revision">
+                <h4>Revision del documento</h4>
+                <label for="fecha-revision">
+                    Fecha de la revision
+                </label>
+                <div class="columna-solicitud">
+                    <input class="fecha-revision" type="date" name="fecha-revision" required>
+                    <input type="text" name="nombre-responsable-revision" placeholder="Nombre del responsable">
+                    <input type="text" name="id-responsable-revision" placeholder="ID del responsable" required>
+                </div>
+            </div>
+
+            <div class="digitalizacion-documento">
+                <h4>Digitalizacion del documento</h4>
+                <label for="fecha-digitalizacion">
+                    Fecha de la digitalizacion
+                </label>
+                <div class="columna-solicitud">
+                    <input class="fecha-digitalizacion" type="date" name="fecha-digitalizacion" required>
+                    <input type="text" name="nombre-responsable-digitalizacion" placeholder="Nombre del responsable">
+                    <input type="text" name="id-responsable-digitalizacion" placeholder="ID del responsable" required>
+                </div>
+            </div>
+            
+            <div class="cargar">
+                <h4>Cargar documento</h4>
+                <label for="cargar-documento">
+                    Seleccionar archivo: 
+                </label>
+                <div class="columna-solicitud">
+                    <input type="file" id="cargar-documento" name="file" accept=".pdf" required>
+                </div>
+            </div>
+            <div class="botones">
+                <button type="submit" id="boton-enviar">Enviar</button>
+                <button type="button" id="boton-limpiar">Limpiar</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Arquidiocesis. Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module" src="../frontEnd-scripts/formularioScripts/index.js"></script>
+</body>
+</html>
